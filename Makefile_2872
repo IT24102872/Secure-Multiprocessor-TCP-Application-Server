@@ -1,0 +1,22 @@
+# Makefile_2872 — FINAL VERSION
+# IE2102 Assignment - IT24102872
+# Build: make -f Makefile_2872
+
+CC      = gcc
+CFLAGS  = -Wall -Wextra -g
+LIBS    = -lssl -lcrypto
+TARGET  = server_2872
+SRC     = server_2872.c
+
+all: $(TARGET)
+	@echo "✓ Build successful → ./$(TARGET)"
+
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC) $(LIBS)
+
+clean:
+	rm -f $(TARGET)
+	@echo "Cleaned."
+
+run: all
+	./$(TARGET)
